@@ -54,9 +54,9 @@ listaProductos.push( new Producto("Miembro Platino" , 18000 , 200) );
 
 for( let i=0 ; i < 3 ; i = i + 1){
 
-    let nombre = prompt("Ingrese el nombre del producto");
-    let precio = prompt("Ingrese el precio del producto");
-    let stock = prompt("Ingrese el stock del producto");
+    let nombre = prompt("Ingrese la nueva categoria");
+    let precio = prompt("Ingrese valor de la categoria");
+    let stock = prompt("Ingrese la disponibilidad de la categoria");
 
     precio = parseFloat(precio);
 
