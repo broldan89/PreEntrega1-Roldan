@@ -1,5 +1,71 @@
 
 
+class Membresia{
+
+    constructor( nombre , precio , stock){
+        this.nombre = nombre;
+        this.precio = precio;
+        this.stock = stock;
+    }
+
+
+    get_datos(){
+        console.log("--MEMBRESIA--");
+        console.log("Nivel: ", this.nombre);
+        console.log("Precio: ", this.precio);
+        console.log("Stock: ", this.stock);
+        console.log("");
+    }
+
+
+    get_stock(){
+        if( this.stock <= 0){
+            return false
+        }
+        else{
+            return true
+        }
+    }
+
+
+    update_stock( unidades ){
+
+        if(this.stock >= unidades ){
+            this.stock = this.stock - unidades;
+            return true
+        }
+        else{
+            console.log("Este nivel de membresias es limitadas, y ya no quedan cupos");
+            console.log("Nivel disponible: ", this.stock);
+            return false
+        }
+
+    }
+
+
+}
+
+let listaProductos = [];
+
+listaProductos.push( new Producto("Miembro Bronce" , 24000 , 1000000000) );
+listaProductos.push( new Producto("Miembro Plata" , 12000 , 1000000) );
+listaProductos.push( new Producto("Miembro Oro" , 30000 , 10000) );
+listaProductos.push( new Producto("Miembro Platino" , 18000 , 200) );
+
+for( let i=0 ; i < 3 ; i = i + 1){
+
+    let nombre = prompt("Ingrese el nombre del producto");
+    let precio = prompt("Ingrese el precio del producto");
+    let stock = prompt("Ingrese el stock del producto");
+
+    precio = parseFloat(precio);
+
+    let producto = new Producto(nombre,precio,stock);
+
+    listaProductos.push(producto);
+
+}
+
 function calculoPrestamo ( monto , cuotas ){
 
     monto = parseFloat(monto);
@@ -62,13 +128,13 @@ while( monto != "FIN" ){
         let resultado_del_prestamo = calculoPrestamo( monto , cuotas );
         let resultado_del_descuento = descuento( resultado_del_prestamo , es_socio );
 
-        console.log("Pediste: ", monto);
-        console.log("Cuotas: ", cuotas);
-        console.log("Devolves: ", resultado_del_prestamo );
+        console.log("Solicitó: ", monto);
+        console.log("Cantidad de cuotas: ", cuotas);
+        console.log("Total a devolver: ", resultado_del_prestamo );
 
 
         if( resultado_del_descuento != 0){
-            console.log("Con descuento del 20% por ser socio pagas: ", resultado_del_descuento);
+            console.log("20% OFF por suscripcion de servicios: ", resultado_del_descuento);
         }
     }
     else{
