@@ -1,70 +1,21 @@
 
 
-class Membresia{
+class membresiaUsuario {
 
-    constructor( nombre , precio , stock){
-        this.nombre = nombre;
-        this.precio = precio;
-        this.stock = stock;
+    constructor( nombre , apellido , dni){
+        this.nombre = nombre;     
+        this.apellido = apellido;
+        this.dni = dni;
     }
-
-
-    get_datos(){
-        console.log("--MEMBRESIA--");
-        console.log("Nivel: ", this.nombre);
-        console.log("Precio: ", this.precio);
-        console.log("Stock: ", this.stock);
-        console.log("");
-    }
-
-
-    get_stock(){
-        if( this.stock <= 0){
-            return false
-        }
-        else{
-            return true
-        }
-    }
-
-
-    update_stock( unidades ){
-
-        if(this.stock >= unidades ){
-            this.stock = this.stock - unidades;
-            return true
-        }
-        else{
-            console.log("Este nivel de membresias es limitadas, y ya no quedan cupos");
-            console.log("Nivel disponible: ", this.stock);
-            return false
-        }
-
-    }
-
-
 }
 
-let listaProductos = [];
-
-listaProductos.push( new Producto("Miembro Bronce" , 24000 , 1000000000) );
-listaProductos.push( new Producto("Miembro Plata" , 12000 , 1000000) );
-listaProductos.push( new Producto("Miembro Oro" , 30000 , 10000) );
-listaProductos.push( new Producto("Miembro Platino" , 18000 , 200) );
-
-for( let i=0 ; i < 3 ; i = i + 1){
-
-    let nombre = prompt("Ingrese la nueva categoria");
-    let precio = prompt("Ingrese valor de la categoria");
-    let stock = prompt("Ingrese la disponibilidad de la categoria");
-
-    precio = parseFloat(precio);
-
-    let producto = new Producto(nombre,precio,stock);
-
-    listaProductos.push(producto);
-
+get_datos(){
+    console.log("<---- DATOS MIEMBRO ---->");
+    console.log("Nombre: ", this.nombre);
+    console.log("Apellido: ", this.apellido);
+    console.log("DNI: ", this.dni);
 }
+
 
 function calculoPrestamo ( monto , cuotas ){
 
@@ -109,8 +60,6 @@ function descuento( prestamo , es_socio ){
 
 
 
-
-
 // PRESTAMO //
 
 console.log("Bienvenidos/as a BR Capital Group.");
@@ -138,7 +87,7 @@ while( monto != "FIN" ){
         }
     }
     else{
-        console.log("Muchas gracias");
+        console.log("Muchas gracias por elegirnos");
     }
 
 
